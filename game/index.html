@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a1020" />
+    <meta
+      name="description"
+      content="Neon Snake, a compact browser game built with Phaser and TypeScript."
+    />
+    <title>Neon Snake</title>
+    <script src="https://api.games.famobi.com/init.js"></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="game-header">
+        <a class="brand" href="./" aria-label="Neon Snake home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Neon Snake</span>
+        </a>
+        <div class="header-actions">
+          <button id="mute-button" class="icon-button" type="button" aria-label="Mute audio">
+            <span aria-hidden="true">♪</span>
+          </button>
+          <button id="pause-button" class="icon-button" type="button" aria-label="Pause game" disabled>
+            <span aria-hidden="true">Ⅱ</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="hud" aria-label="Game status">
+        <div class="hud-stat">
+          <span class="hud-label">Level</span>
+          <strong id="level-value">1</strong>
+        </div>
+        <div class="hud-progress">
+          <div class="hud-progress-copy">
+            <span class="hud-label">Fruit</span>
+            <strong id="fruit-value">0 / 5</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progress-value"></span>
+          </div>
+        </div>
+        <div class="hud-stat hud-stat-right">
+          <span class="hud-label">Score</span>
+          <strong id="score-value">0</strong>
+        </div>
+        <div class="hud-stat hud-stat-right hud-best">
+          <span class="hud-label">Best</span>
+          <strong id="best-value">0</strong>
+        </div>
+      </section>
+
+      <section class="play-area" aria-label="Snake game">
+        <div id="game-container" class="phaser-container" aria-label="Snake playfield"></div>
+
+        <div id="game-overlay" class="game-overlay">
+          <div class="overlay-card">
+            <span id="overlay-eyebrow" class="overlay-eyebrow">Three levels</span>
+            <h1 id="overlay-title">Ready to slither?</h1>
+            <p id="overlay-copy">Eat the fruit, avoid the walls, and clear every level.</p>
+            <div id="level-select" class="level-select" hidden aria-label="Level selection">
+              <button type="button" data-level="1">1</button>
+              <button type="button" data-level="2">2</button>
+              <button type="button" data-level="3">3</button>
+            </div>
+            <div class="overlay-actions">
+              <button id="primary-action" class="button button-primary" type="button">Start game</button>
+              <button id="secondary-action" class="button button-secondary" type="button" hidden>
+                Main menu
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="game-controls" aria-label="Game controls">
+        <p><kbd>Arrow keys</kbd> or <kbd>WASD</kbd> to move · <kbd>P</kbd> to pause</p>
+        <div class="direction-pad" aria-label="Touch controls">
+          <button class="direction-button direction-up" type="button" data-direction="up" aria-label="Move up">↑</button>
+          <button class="direction-button direction-left" type="button" data-direction="left" aria-label="Move left">←</button>
+          <button class="direction-button direction-down" type="button" data-direction="down" aria-label="Move down">↓</button>
+          <button class="direction-button direction-right" type="button" data-direction="right" aria-label="Move right">→</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Loaded after the markup, so the game finds its elements when it runs.
+      (function () {
+        var files = ['game.css', 'game.js'];
+        if (window.GameInterface) {
+          window.GameInterface.init(files);
+          return;
+        }
+        // No SDK (e.g. GitHub Pages or offline): load the game files directly.
+        var style = document.createElement('link');
+        style.rel = 'stylesheet';
+        style.href = files[0];
+        document.head.appendChild(style);
+        var script = document.createElement('script');
+        script.src = files[1];
+        document.body.appendChild(script);
+      })();
+    </script>
+  </body>
+</html>

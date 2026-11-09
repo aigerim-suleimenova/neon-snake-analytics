@@ -1,0 +1,52 @@
+/* Design tokens from the design reference (Neon Snake Analytics.dc.html), with the fixes in design.md §7. */
+:root {
+  /* Surfaces */
+  --color-canvas: #070b12;
+  --color-surface: #0d1420;
+  --color-raised: #111b2a;
+  --color-border: #243247;
+  --color-border-strong: #3a4c66;
+  --color-gridline: #1a2536;
+  --color-skeleton: #162235;
+
+  /* Text */
+  --color-text: #f3f7fc;
+  --color-text-secondary: #b8c4d3;
+  --color-text-muted: #8391a4;
+
+  /* Outcomes */
+  --color-complete: #39ff88;
+  --color-fail: #ff4d8d;
+  --color-quit: #38d9ff;
+  --color-unfinished: #5b6b80;
+
+  /* Failure reasons: distinct hues, none repeats an outcome color */
+  --color-reason-wall: #f5b841;
+  --color-reason-snake: #a88bff;
+  --color-reason-obstacle: #2bb3a3;
+  --color-reason-external: #9aa8bc;
+
+  /* Progress ranges: neutral slate ramp ordered by lightness */
+  --color-progress-0-19: #3b4a5e;
+  --color-progress-20-39: #56677f;
+  --color-progress-40-59: #7489a3;
+  --color-progress-60-79: #9db0c6;
+  --color-progress-80-99: #cbd7e4;
+
+  /* Notices */
+  --color-info-border: #1e5568;
+  --color-info-background: #0d1a24;
+  --color-error-border: #6b2140;
+  --color-error-background: #1a0e16;
+
+  --color-focus: #38d9ff;
+
+  --font-sans: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 14px;
+  --radius-panel: 10px;
+  --radius-control: 6px;
+  --radius-bar: 4px;
+  --radius-marker: 2px;
+}

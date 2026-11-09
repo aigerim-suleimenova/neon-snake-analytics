@@ -1,0 +1,6 @@
+# One Kafka broker in KRaft mode (no ZooKeeper), for the optional queued ingestion: `pnpm kafka`.
+services:
+  kafka:
+    image: apache/kafka:3.9.1
+    ports:
+      - '127.0.0.1:9092:9092'

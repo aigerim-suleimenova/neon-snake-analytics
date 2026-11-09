@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+.git
+backend/emulator-data
+backend/archive-data
+infra
+openspec
+*.log
+.env

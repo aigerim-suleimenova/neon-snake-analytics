@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+*.log
+.env
+backend/emulator-data/
+backend/archive-data/
+infra/gcp/.terraform/
+infra/gcp/*.tfstate*
+infra/gcp/*.tfvars

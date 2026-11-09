@@ -1,0 +1,58 @@
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 36px;
+  gap: 10px;
+  align-items: center;
+}
+
+.level {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.bar {
+  height: 18px;
+  display: flex;
+  gap: 2px;
+}
+
+/* Widths are percentages of the shared scale; segments shrink a little to make room for the gaps. */
+.segment {
+  min-width: 2px;
+  border-radius: var(--radius-marker);
+}
+
+.total {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scale {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}

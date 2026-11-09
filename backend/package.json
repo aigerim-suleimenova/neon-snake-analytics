@@ -1,0 +1,44 @@
+{
+  "name": "neon-snake-analytics-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Receives Neon Snake gameplay analytics, stores them in the Firestore emulator and serves statistics.",
+  "type": "module",
+  "scripts": {
+    "dev": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-neon-snake tsx watch src/server.ts",
+    "dev:kafka": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-neon-snake KAFKA_BROKERS=127.0.0.1:9092 tsx watch src/server.ts",
+    "kafka": "docker compose up -d",
+    "worker": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-neon-snake KAFKA_BROKERS=127.0.0.1:9092 tsx watch src/ingestWorker.ts",
+    "snapshot": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-neon-snake tsx watch src/statsSnapshotWorker.ts",
+    "archive": "KAFKA_BROKERS=127.0.0.1:9092 tsx watch src/archiveWorker.ts",
+    "seed": "tsx src/seed.ts",
+    "load": "tsx src/load.ts",
+    "rebuild-stats": "FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 GCLOUD_PROJECT=demo-neon-snake tsx src/rebuildStats.ts",
+    "check": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "test:emulator": "firebase emulators:exec --only firestore \"vitest run --passWithNoTests --config vitest.emulator.config.ts\"",
+    "emulators": "firebase emulators:start --only firestore --export-on-exit=emulator-data $([ -d emulator-data ] && echo --import=emulator-data)"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "^8.3.1",
+    "@neon-snake/contract": "workspace:*",
+    "express": "^5.2.1",
+    "firebase-admin": "^14.5.0",
+    "helmet": "^8.3.0",
+    "kafkajs": "^2.2.4",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.20.4",
+    "@types/supertest": "^7.2.1",
+    "firebase-tools": "^15.32.0",
+    "supertest": "^7.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.2"
+  }
+}

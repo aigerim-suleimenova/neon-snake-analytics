@@ -1,0 +1,55 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "runs",
+      "fieldPath": "startedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "runs",
+      "fieldPath": "endedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "runs",
+      "fieldPath": "startReceivedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "runs",
+      "fieldPath": "endReceivedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "runs",
+      "fieldPath": "updatedAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "sessions",
+      "fieldPath": "firstSeenAt",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "statsShards",
+      "fieldPath": "levels",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "statsShards",
+      "fieldPath": "sessions",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "stats",
+      "fieldPath": "counts",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "stats",
+      "fieldPath": "computedAt",
+      "indexes": []
+    }
+  ]
+}

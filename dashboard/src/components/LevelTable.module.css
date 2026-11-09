@@ -1,0 +1,119 @@
+.card {
+  min-width: 0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.scroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-gridline);
+}
+
+.table tbody tr:hover {
+  background: var(--color-raised);
+}
+
+.table td,
+.table tbody th {
+  padding: 12px;
+}
+
+.header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.table .numeric {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.table thead th.numeric {
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.level {
+  text-align: left;
+  font-weight: 700;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.reason {
+  color: var(--color-text-secondary);
+}
+
+.skeleton {
+  display: block;
+  height: 14px;
+  border-radius: var(--radius-bar);
+  background: var(--color-skeleton);
+}
+
+.table .message {
+  padding: 28px 12px;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.source {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}

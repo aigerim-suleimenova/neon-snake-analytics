@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: ${{ matrix.project }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [packages/contract, game, backend, dashboard]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # One workspace: pnpm's version and the lockfile are at the root.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # The Firestore emulator needs Java 21.
+      - if: matrix.project == 'backend'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      # The whole workspace, from the root lockfile.
+      - run: pnpm install --frozen-lockfile
+        working-directory: .
+      - run: pnpm check
+      - run: pnpm test
+
+      - if: matrix.project == 'backend'
+        run: pnpm test:emulator
+
+      - if: matrix.project == 'game' || matrix.project == 'dashboard'
+        run: pnpm build

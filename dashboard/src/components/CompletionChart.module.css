@@ -1,0 +1,77 @@
+.chart {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 8px;
+  /* Room above the plot for the label of a 100% bar. */
+  padding-top: 24px;
+}
+
+.axis {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  transform: translateY(-6px);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.plot {
+  height: 200px;
+  margin: 0;
+  padding: 0 4px;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--color-border-strong);
+  /* Gridlines at 100, 75, 50 and 25%. */
+  background: repeating-linear-gradient(to bottom, var(--color-gridline) 0 1px, transparent 1px 50px);
+}
+
+.column {
+  flex: 1;
+  max-width: 44px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bar {
+  width: 100%;
+  flex: none;
+  background: var(--color-complete);
+  border-radius: var(--radius-bar) var(--radius-bar) 0 0;
+}
+
+/* A real 0% stays visible as a thin line. */
+.zero {
+  min-height: 2px;
+}
+
+.levels {
+  padding: 0 4px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.level {
+  flex: 1;
+  max-width: 44px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}

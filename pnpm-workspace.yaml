@@ -1,0 +1,11 @@
+packages:
+  - packages/*
+  - game
+  - backend
+  - dashboard
+
+allowBuilds:
+  '@firebase/util': false
+  esbuild: false
+  protobufjs: false
+  re2: false
